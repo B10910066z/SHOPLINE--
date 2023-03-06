@@ -1,0 +1,278 @@
+header{
+    width: 100%;
+    height: 110px;
+    position: fixed;
+    line-height: 50px;
+    padding-bottom: 10px;
+    background-color: #fff;    
+}
+/* 問題1:如何在有fixed定位的情況下能處理好排版問題(上面的position: fixed) */
+.start{
+    width: 70%;
+    justify-content: center;
+    margin: auto;
+}
+.sign{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.blank{
+    height: 140px;
+}
+.shopline{
+    width: 100%;
+}
+.sign a{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(114, 114, 221);
+}
+.front-page a{
+    color: black;
+    text-decoration: none;
+}
+.front-page{
+    width: 100%;
+    font-size: medium;
+}
+.front-page a ~ a{       
+    margin-left: 3%;
+    transition: all .5s;
+}  
+/* 問題2:如何讓文字與文字裝置底線有距離 */
+.front-page a:not(a:first-child , a:last-child):hover{
+    text-decoration: underline;
+    text-decoration-color: blue;
+}
+.front-page a:first-child{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+.front-page a:last-child{
+    background-color: blue;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10%;
+}
+.front-page a:last-child:hover{
+    background-color: rgb(76, 143, 188);
+}
+.container{
+    background-color: azure;
+    width: 100%;
+}
+.group{
+    width: 70%;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+}
+/* 問題3:詢問老師container和group這兩個是否設對 */
+/* 問題4:為甚麼group無法繼承container的背景顏色 */
+.item{
+    width: 50%;
+}
+.container .item:first-child{
+    width: 40%;
+    margin: auto;
+    margin-left: 0px;
+}
+.free{
+    margin-top: 20px;
+    padding: 5px 20px;
+    color: #fff;
+    background-color: blue;
+    text-decoration: none;
+}
+/* 問題5:上面的item a問題有點大在padding跟margin的部分 */
+.container:first-of-type a:hover{
+    background-color: rgb(3, 3, 54);
+}
+.item strong{
+    font-size: 35px;
+    display: block;
+}
+.item p{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.item p:last-child{
+    margin-top: 10px;
+    font-size: small;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.interval{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(222, 239, 253);
+}
+.container:nth-child(3){
+    background-color: #f8e6e6;
+}
+.container:nth-child(3) .item{
+    width: 70%;
+    text-align: center;
+    margin: 60px 0px 50px 0px;
+}
+.container:nth-child(3) .item strong{
+    font-size: xx-large;
+    color: rgb(54, 23, 83);
+}
+.container:nth-child(3) ~ .container{
+    background-color: #fff;
+    margin-top: 50px;
+    align-items: center;
+}
+.container:nth-child(3) ~ .container .group{
+    gap: 10%;
+}
+.container:nth-child(3) ~ .container .item{
+    width: 60%;
+}
+.container:nth-child(5) .group , .container:nth-child(7) .group{
+    flex-direction: row-reverse;
+}
+.item-ul{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+/* 問題6:清單是否會不會受到flex-wrap或flex-direction影響 */
+.item-ul ul{
+    padding-left: 0%;
+    text-decoration-color: blue;
+}
+/* 問題7:ul如何改前面圓點的顏色 */
+.check{
+    gap: 1px;
+}
+.check a{
+    background-color: #fff;
+    color: blue;
+    transition: all .5s;
+    text-decoration: underline;
+}
+.check a:last-child{
+    text-decoration: none;
+}
+.check a:hover{
+    margin-right: 5px;
+}
+h2 , h3{
+    color: blue;
+}
+h2{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.more{
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    background-color: aliceblue;
+}
+.more + .more{
+    background-color: #fff;
+}
+.more:last-of-type{
+    background-color: rgb(229, 242, 253);
+    padding-bottom: 80px;
+    padding-top: 60px;
+}
+.more .group{
+    flex-wrap: wrap;
+    gap: 5%;
+}
+.more .item{
+    width: 30%;
+    text-align: center;
+}
+.more img{
+    width: 50%;
+    height: 50%;
+}
+.brand{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 60px;
+    margin-bottom: 50px;
+}
+.brand img{
+    width: 100%;
+    height: 100%;
+}
+.brand a + a{
+    opacity: 30%;
+    transition: all .3s;
+}
+.brand a + a:hover{
+    opacity: 100%;
+}
+/* 問題8:有關於first-child的子群組(是否可以往更子群組的子群組更向下找) */
+/* 問題9:SHOPLINE網站下面那個可以拉動的是怎麼做到的 */
+.more + .more .item{
+    width: 80%;
+    line-height: 2px;
+}
+.more .item:only-child{
+    width: 100%;
+}
+/* 問題10:使用nth-child()或nth-last-child()會不會很難維護 */
+h1{
+    margin-bottom: 50px;
+    font-size: 40px;
+}
+.about{
+    padding-top: 30px;
+    width: 100%;
+    background-color: rgb(10, 10, 69);
+}
+.about .group{
+    border-bottom: 1px solid #fff;
+    /* 問題12如何讓邊框線變得透明 */
+    padding-bottom: 15px;
+}
+.about a{
+    color: #fff;  
+    /* 這裡所設置的會影響到第267的設定 */
+    text-decoration: none;
+}
+.about .index:only-child{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.about .group .item p{
+    color: #fff;
+    font-size: medium;
+    margin-bottom: 10px;
+}
+.about .index:not(.index:only-child) a{
+    display: block;
+    margin-top: 10px;
+    opacity: 25%;
+    transition: all .3s;
+}
+.about .index:not(.index:only-child) a:hover{
+    opacity: 100%;
+}
+.about .group:nth-child(3){
+    justify-content: flex-end;
+}
+.information-security{
+    background-color: yellow;
+    color: black !important;  
+    padding: 10px 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* 問題11:上面的.information-security設定的color無用 */
